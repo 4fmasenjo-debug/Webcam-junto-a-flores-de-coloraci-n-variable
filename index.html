@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Webcam con Cisnes abajo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #000;
+    }
+
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    #svg-container {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 15px;
+      padding: 10px;
+      z-index: 1;
+    }
+
+    svg {
+      width: 150px;
+      height: 160px;
+      pointer-events: none;
+    }
+
+    .color-part {
+      transition: fill 0.5s ease;
+    }
+
+    @keyframes flap {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(10deg); }
+    }
+
+    .wing {
+      transform-origin: 130px 160px;
+      animation: flap 1.5s ease-in-out infinite;
+    }
+
+    .wing.right {
+      transform-origin: 210px 130px;
+      animation: flap 1.5s ease-in-out infinite;
+      animation-direction: alternate;
+    }
+  </style>
+</head>
+<body>
+  <video id="video" autoplay playsinline muted></video>
+
+  <!-- Contenedor con varias flores abajo -->
+  <div id="svg-container">  <!-- Lirio -->
+    <svg viewBox="0 0 280 300">
+      <polygon class="color-part" points="110,80 200,140 45,140" fill="#FA8015"/>
+      <polygon class="color-part" points="220,121 140,110 130,110 180,70" fill="#F7EA00"/>
+      <polygon class="color-part" points="20,20 160,50 170,70 150,100 110,103" fill="#FF0000"/>
+      <polygon class="color-part" points="20,20 70,40 120,70 150,100 110,103" fill="#F7AB00"/>
+      <polygon class="color-part wing" points="230,154 199,190 130,180 111,160 130,125" fill="#BA00BF"/>
+      <polygon class="color-part" points="105,234 190,110 150,100 120,100 120,110" fill="#00C7EB"/>
+      <polygon class="color-part wing right" points="105,234 160,110 150,100 120,100 120,110" fill="#04CA00"/>
+      <polygon class="color-part" points="180,160 180,220 180,120 210,100 280,230" fill="#04ED00"/>
+      <polygon class="color-part" points="180,160 180,200 180,120 170,100 280,230" fill="#E6FF00"/>
+      <polygon class="color-part" points="280,20 220,120 180,85 233,127 165,65" fill="#E6FF00"/>
+      <polygon class="color-part" points="280,20 170,120 180,85 233,127 165,65" fill="#E6FF00"/>
+      <polygon class="color-part" points="180,75 200,120 220,50" fill="#E6FF00"/>
+      <polygon class="color-part" points="155,92 140,40 180,70" fill="#E6FF00"/>
+      <polygon class="color-part" points="200,100 170,110 210,150" fill="#E6FF00"/>
+      <polygon class="color-part" points="180,101 140,100 140,150" fill="#E6FF00"/>
+    </svg>
+
+    <svg viewBox="0 0 280 300"> <!-- cerezo -->
+      <polygon class="color-part" points="50,150 45,111 65,123" fill="#FA8015"/>
+      <polygon class="color-part" points="240,77 220,140 115,160" fill="#F7EA00"/>
+      <polygon class="color-part" points="55,89 49,111 115,160 135,127" fill="#FF0000"/>
+      <polygon class="color-part" points="50,150 49,111 65,123" fill="#F7AB00"/>
+      <polygon class="color-part wing" points="230,154 199,190 130,180 111,160 130,125" fill="#BA00BF"/>
+      <polygon class="color-part" points="180,110 210,140 115,160 111,140 117,125" fill="#00C7EB"/>
+      <polygon class="color-part wing right" points="175,109 209,140 229,110" fill="#04CA00"/>
+      <polygon class="color-part" points="175,109 225,155 225,120" fill="#04ED00"/>
+      <polygon class="color-part" points="270,175 220,135 115,160" fill="#E6FF00"/>
+    </svg>
+
+    <svg viewBox="0 0 280 300"> <!-- flor mía -->
+      <polygon class="color-part" points="50,150 45,111 65,123" fill="#FA8015"/>
+      <polygon class="color-part" points="240,77 220,140 115,160" fill="#F7EA00"/>
+      <polygon class="color-part" points="55,89 49,111 115,160 135,127" fill="#FF0000"/>
+      <polygon class="color-part" points="50,150 49,111 65,123" fill="#F7AB00"/>
+      <polygon class="color-part wing" points="230,154 199,190 130,180 111,160 130,125" fill="#BA00BF"/>
+      <polygon class="color-part" points="180,110 210,140 115,160 111,140 117,125" fill="#00C7EB"/>
+      <polygon class="color-part wing right" points="175,109 209,140 229,110" fill="#04CA00"/>
+      <polygon class="color-part" points="175,109 225,155 225,120" fill="#04ED00"/>
+      <polygon class="color-part" points="270,175 220,135 115,160" fill="#E6FF00"/>
+    </svg>
+
+    <svg viewBox="0 0 280 300"> <!-- cardo mío -->
+      <polygon class="color-part" points="50,150 45,111 65,123" fill="#FA8015"/>
+      <polygon class="color-part" points="240,77 220,140 115,160" fill="#F7EA00"/>
+      <polygon class="color-part" points="55,89 49,111 115,160 135,127" fill="#FF0000"/>
+      <polygon class="color-part" points="50,150 49,111 65,123" fill="#F7AB00"/>
+      <polygon class="color-part wing" points="230,154 199,190 130,180 111,160 130,125" fill="#BA00BF"/>
+      <polygon class="color-part" points="180,110 210,140 115,160 111,140 117,125" fill="#00C7EB"/>
+      <polygon class="color-part wing right" points="175,109 209,140 229,110" fill="#04CA00"/>
+      <polygon class="color-part" points="175,109 225,155 225,120" fill="#04ED00"/>
+      <polygon class="color-part" points="270,175 220,135 115,160" fill="#E6FF00"/>
+    </svg>
+
+    <svg viewBox="0 0 280 300"> <!-- Lirio -->
+      <polygon class="color-part" points="110,80 200,140 45,140" fill="#FA8015"/>
+      <polygon class="color-part" points="220,121 140,110 130,110 180,70" fill="#F7EA00"/>
+      <polygon class="color-part" points="20,20 160,50 170,70 150,100 110,103" fill="#FF0000"/>
+      <polygon class="color-part" points="20,20 70,40 120,70 150,100 110,103" fill="#F7AB00"/>
+      <polygon class="color-part wing" points="230,154 199,190 130,180 111,160 130,125" fill="#BA00BF"/>
+      <polygon class="color-part" points="105,234 190,110 150,100 120,100 120,110" fill="#00C7EB"/>
+      <polygon class="color-part wing right" points="105,234 160,110 150,100 120,100 120,110" fill="#04CA00"/>
+      <polygon class="color-part" points="180,160 180,220 180,120 210,100 280,230" fill="#04ED00"/>
+      <polygon class="color-part" points="180,160 180,200 180,120 170,100 280,230" fill="#E6FF00"/>
+      <polygon class="color-part" points="280,20 220,120 180,85 233,127 165,65" fill="#E6FF00"/>
+      <polygon class="color-part" points="280,20 170,120 180,85 233,127 165,65" fill="#E6FF00"/>
+      <polygon class="color-part" points="180,75 200,120 220,50" fill="#E6FF00"/>
+      <polygon class="color-part" points="155,92 140,40 180,70" fill="#E6FF00"/>
+      <polygon class="color-part" points="200,100 170,110 210,150" fill="#E6FF00"/>
+      <polygon class="color-part" points="180,101 140,100 140,150" fill="#E6FF00"/>
+    </svg>
+
+    <svg viewBox="0 0 280 300"> <!-- cerezo -->
+      <polygon class="color-part" points="50,150 45,111 65,123" fill="#FA8015"/>
+      <polygon class="color-part" points="240,77 220,140 115,160" fill="#F7EA00"/>
+      <polygon class="color-part" points="55,89 49,111 115,160 135,127" fill="#FF0000"/>
+      <polygon class="color-part" points="50,150 49,111 65,123" fill="#F7AB00"/>
+      <polygon class="color-part wing" points="230,154 199,190 130,180 111,160 130,125" fill="#BA00BF"/>
+      <polygon class="color-part" points="180,110 210,140 115,160 111,140 117,125" fill="#00C7EB"/>
+      <polygon class="color-part wing right" points="175,109 209,140 229,110" fill="#04CA00"/>
+      <polygon class="color-part" points="175,109 225,155 225,120" fill="#04ED00"/>
+      <polygon class="color-part" points="270,175 220,135 115,160" fill="#E6FF00"/>
+    </svg>
+
+    <svg viewBox="0 0 280 300"> <!-- flor mía -->
+      <polygon class="color-part" points="50,150 45,111 65,123" fill="#FA8015"/>
+      <polygon class="color-part" points="240,77 220,140 115,160" fill="#F7EA00"/>
+      <polygon class="color-part" points="55,89 49,111 115,160 135,127" fill="#FF0000"/>
+      <polygon class="color-part" points="50,150 49,111 65,123" fill="#F7AB00"/>
+      <polygon class="color-part wing" points="230,154 199,190 130,180 111,160 130,125" fill="#BA00BF"/>
+      <polygon class="color-part" points="180,110 210,140 115,160 111,140 117,125" fill="#00C7EB"/>
+      <polygon class="color-part wing right" points="175,109 209,140 229,110" fill="#04CA00"/>
+      <polygon class="color-part" points="175,109 225,155 225,120" fill="#04ED00"/>
+      <polygon class="color-part" points="270,175 220,135 115,160" fill="#E6FF00"/>
+    </svg>
+
+    <svg viewBox="0 0 280 300"> <!-- cardo -->
+      <polygon class="color-part" points="50,150 45,111 65,123" fill="#FA8015"/>
+      <polygon class="color-part" points="240,77 220,140 115,160" fill="#F7EA00"/>
+      <polygon class="color-part" points="55,89 49,111 115,160 135,127" fill="#FF0000"/>
+      <polygon class="color-part" points="50,150 49,111 65,123" fill="#F7AB00"/>
+      <polygon class="color-part wing" points="230,154 199,190 130,180 111,160 130,125" fill="#BA00BF"/>
+      <polygon class="color-part" points="180,110 210,140 115,160 111,140 117,125" fill="#00C7EB"/>
+      <polygon class="color-part wing right" points="175,109 209,140 229,110" fill="#04CA00"/>
+      <polygon class="color-part" points="175,109 225,155 225,120" fill="#04ED00"/>
+      <polygon class="color-part" points="270,175 220,135 115,160" fill="#E6FF00"/>
+    </svg>
+
+    <svg viewBox="0 0 280 300"> <!-- Lirio -->
+      <polygon class="color-part" points="110,80 200,140 45,140" fill="#FA8015"/>
+      <polygon class="color-part" points="220,121 140,110 130,110 180,70" fill="#F7EA00"/>
+      <polygon class="color-part" points="20,20 160,50 170,70 150,100 110,103" fill="#FF0000"/>
+      <polygon class="color-part" points="20,20 70,40 120,70 150,100 110,103" fill="#F7AB00"/>
+      <polygon class="color-part wing" points="230,154 199,190 130,180 111,160 130,125" fill="#BA00BF"/>
+      <polygon class="color-part" points="105,234 190,110 150,100 120,100 120,110" fill="#00C7EB"/>
+      <polygon class="color-part wing right" points="105,234 160,110 150,100 120,100 120,110" fill="#04CA00"/>
+      <polygon class="color-part" points="180,160 180,220 180,120 210,100 280,230" fill="#04ED00"/>
+      <polygon class="color-part" points="180,160 180,200 180,120 170,100 280,230" fill="#E6FF00"/>
+      <polygon class="color-part" points="280,20 220,120 180,85 233,127 165,65" fill="#E6FF00"/>
+      <polygon class="color-part" points="280,20 170,120 180,85 233,127 165,65" fill="#E6FF00"/>
+      <polygon class="color-part" points="180,75 200,120 220,50" fill="#E6FF00"/>
+      <polygon class="color-part" points="155,92 140,40 180,70" fill="#E6FF00"/>
+      <polygon class="color-part" points="200,100 170,110 210,150" fill="#E6FF00"/>
+      <polygon class="color-part" points="180,101 140,100 140,150" fill="#E6FF00"/>
+    </svg>
+  </div>
+
+  <script>
+    const video = document.getElementById('video');
+    navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+      .then(stream => video.srcObject = stream)
+      .catch(() => alert("Debes permitir el acceso a la cámara."));
+
+    // Función para color aleatorio en hex
+    function getRandomColor() {
+      return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+    }
+
+    // Cambiar colores de los polígonos cada segundo
+    setInterval(() => {
+      document.querySelectorAll('.color-part').forEach(poly => {
+        poly.setAttribute('fill', getRandomColor());
+      });
+    }, 1000);
+  </script>
+</body>
+</html>
